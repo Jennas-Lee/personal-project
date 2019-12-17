@@ -12,9 +12,12 @@ def query(BigMem, BigNum):
         if not line:
             break
         with open("query.sql", "a", encoding="utf-8") as f_query:
-            data = "INSERT INTO yeonma_math1 (BigMem, BigNum, SmlMem, SmlNum, CompleteTrue) VALUES ('" + BigMem + "', " + str(BigNum) + ", '" + line + "', " + str(i) + ", 0);"
-            print(data)
-            f_query.write(data)
+            data1 = "INSERT INTO yeonma_huaktong (BigMem, BigNum, SmlMem, SmlNum, CompleteTrue) VALUES"
+            data2 = "('" + BigMem + "', " + str(BigNum) + ", '" + line + "', " + str(i) + ", 0);"
+            data3 = data1 + data2
+            print(data3)
+            f_query.write(data1+"\n")
+            f_query.write(data2)
         i+=1
     f_txt.close
     print("DONE")

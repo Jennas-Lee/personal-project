@@ -12,7 +12,7 @@
         <!-- bootstrap js -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:500&display=swap" rel="stylesheet">
         <!-- font -->
-    <title>Document</title>
+    <title>수학진도시스템</title>
 </head>
 <body class="bg-dark">
     <header role="header">
@@ -21,20 +21,21 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">연마수학 - 수학Ⅰ</a>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            진도관리
+                        </a>
+                        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <a href="list.html" class="dropdown-item text-light" onmouseover="this.className='dropdown-item text-dark bg-light'" onmouseout="this.className='dropdown-item text-light'">연마수학 - 수학Ⅰ</a>
+                            <a href="#" class="dropdown-item text-light" onmouseover="this.className='dropdown-item text-dark bg-light'" onmouseout="this.className='dropdown-item text-light'">라이트센 - 수학Ⅰ</a>
+                            <a href="#" class="dropdown-item text-light" onmouseover="this.className='dropdown-item text-dark bg-light'" onmouseout="this.className='dropdown-item text-light'">연마수학 - 확률과 통계</a>
+                            <a href="#" class="dropdown-item text-light" onmouseover="this.className='dropdown-item text-dark bg-light'" onmouseout="this.className='dropdown-item text-light'">라이트센 - 확률과 통계</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">라이트센 - 수학Ⅰ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">연마수학 - 확률과 통계</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">라이트센 - 확률과 통계</a>
+                        <a href="#" class="nav-link">숙제관리</a>
                     </li>
                 </ul>
             </div>
@@ -76,5 +77,15 @@
             </div>
         </div>
     </main>
+    <hr>
+    <footer role="footer" class="container">
+        <h6 class="text-center text-light">
+            이 사이트는 외부인은 사용할 수 없습니다
+            <br>
+            이 사이트를 발견하셨을시 <a href="mailto:leezeunjun@gmail.com" class="text-primary">leezeunjun@gmail.com</a>으로 연락해주시기 바랍니다.
+            <br>
+            COPYRIGHT &copy; SeungJun Lee, All Rights RESERVED
+        </h6>
+    </footer>
 </body>
 </html>
