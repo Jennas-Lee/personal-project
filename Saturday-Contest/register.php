@@ -52,85 +52,57 @@
          </nav>
      </header>
      <main role="main">
-         <div class="container text-center">
-             <div class="h3 mt-4 mb-4">
-                 다음 대회
-             </div>
-             <div class="jumbotron">
-                 <p class="lead">1시즌 1차 배치</p>
-                 <p class="lead">2020-03-02 19:00:00</p>
-                 <h1 class="display-4">
-                     <span class="d-day">
-                         <script type="text/javascript">
-                             var day="2020-03-02";
-                             var now = new Date();
-                             var then = new Date(day);
-                             var gap = then.getTime() - now.getTime();
-                             gap = Math.floor(gap / (1000 * 60 * 60 * 24));
-                             if(gap<=-1) {
-                                 document.write("D-DAY");
-                             } else if(gap<=7) {
-                                 document.write("D-"+gap);
-                                 $(".d-day").css("color", "red");
-                                 $(".d-day").css("font-weight", "bold");
-                             } else {
-                                 document.write("D-"+gap);
-                             }
-                         </script>
-                     </span> <span>17:00:00</span>
-                 </h1>
-             </div>
-         </div>
-         <div class="container">
-             <div class="h3 text-center mt-4 mb-4">
-                 지난 대회의 결과
-             </div>
-             <div class="card-group">
-                 <div class="card">
-                     <div class="card-body">
-                         <h5 class="card-title text-center">Bronze</h5>
-                         <div class="card-text"></div>
-                     </div>
-                 </div>
-                 <div class="card">
-                     <div class="card-body">
-                         <h5 class="card-title text-center">Silver</h5>
-                         <div class="card-text"></div>
-                     </div>
-                 </div>
-                 <div class="card">
-                     <div class="card-body">
-                         <h5 class="card-title text-center">Gold</h5>
-                         <div class="card-text"></div>
-                     </div>
+         <form action="">
+             <div class="form-group">
+                 <label for="" class="col-sm-2 col-form-label"></label>
+                 <div class="col-sm-10">
+                     <input type="text" name="" value="">
                  </div>
              </div>
-         </div>
-         <div class="container">
-             <div class="h3 text-center mt-4 mb-4">
-                 TOP 5
-             </div>
-             <div class="card-group">
-                 <div class="card">
-                     <div class="card-body">
-                         <h5 class="card-title text-center">Bronze</h5>
-                         <div class="card-text"></div>
-                     </div>
-                 </div>
-                 <div class="card">
-                     <div class="card-body">
-                         <h5 class="card-title text-center">Silver</h5>
-                         <div class="card-text"></div>
-                     </div>
-                 </div>
-                 <div class="card">
-                     <div class="card-body">
-                         <h5 class="card-title text-center">Gold</h5>
-                         <div class="card-text"></div>
-                     </div>
+             <div class="form-group">
+                 <label for="" class="col-sm-2 col-form-label"></label>
+                 <div class="col-sm-10">
+                     <input type="text" name="" value="">
                  </div>
              </div>
-         </div>
+             <div class="form-group">
+                 <label for="" class="col-sm-2 col-form-label"></label>
+                 <div class="col-sm-10">
+                     <input type="text" name="" value="">
+                 </div>
+             </div>
+             <div class="form-group"></div>
+             <div class="form-group">
+                 <label for="" class="col-sm-2 col-form-label"></label>
+                 <div class="col-sm-10">
+                     <input type="text" name="" value="">
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="" class="col-sm-2 col-form-label"></label>
+                 <div class="col-sm-10">
+                     <input type="text" name="" value="">
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="" class="col-sm-2 col-form-label"></label>
+                 <div class="col-sm-10">
+                     <input type="text" name="" value="">
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="" class="col-sm-2 col-form-label"></label>
+                 <div class="col-sm-10">
+                     <input type="text" name="" value="">
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="" class="col-sm-2 col-form-label"></label>
+                 <div class="col-sm-10">
+                     <input type="text" name="" value="">
+                 </div>
+             </div>
+         </form>
      </main>
      <hr>
      <footer class="container">
