@@ -1,3 +1,6 @@
+<?php
+    include "db.php";
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -57,11 +60,12 @@
                  회원가입
              </h3>
          </div>
-         <form action="" class="container">
+         <form method="post" id="registerform" class="container">
              <div class="form-group row">
                  <label for="" class="col-sm-2 col-form-label">아이디</label>
                  <div class="col-sm-10">
-                     <input type="text" name="identy" class="form-control" placeholder="코드업 아이디와 일치시켜 주시기 바랍니다.">
+                     <input type="text" id="identy" name="identy" class="form-control" placeholder="코드업 아이디와 일치시켜 주시기 바랍니다.">
+                     <button type="button" name="identy_check" id="identy_check" class="btn btn-info mt-2">중복확인</button>
                  </div>
              </div>
              <div class="form-group row">
@@ -73,24 +77,27 @@
              <div class="form-group row">
                  <label for="" class="col-sm-2 col-form-label">기수</label>
                  <div class="col-sm-10">
-                     <select name="" id="" class="form-control">
-                         <option value="val1">1기</option>
-                         <option value="val2">2기</option>
+                     <select name="year" id="year" class="form-control">
+                         <option value="" selected disabled hidden>선택</option>
+                         <option value="1기">1기</option>
+                         <option value="2기">2기</option>
                      </select>
                  </div>
              </div>
+             <hr>
              <div class="form-group row">
                  <label for="" class="col-sm-2 col-form-label">비밀번호</label>
                  <div class="col-sm-10">
-                     <input type="password" name="pw" value="" class="form-control">
+                     <input type="password" name="pw" id="pw1" class="form-control">
                  </div>
              </div>
              <div class="form-group row">
                  <label for="" class="col-sm-2 col-form-label">비밀번호 확인</label>
                  <div class="col-sm-10">
-                     <input type="password" name="pwch" value="" class="form-control">
+                     <input type="password" name="pwch" id="pw2" class="form-control">
                  </div>
              </div>
+             <hr>
              <div class="form-group row">
                  <label for="" class="col-sm-2 col-form-label">전화번호</label>
                  <div class="form-row col-sm-10">
@@ -117,7 +124,7 @@
                  </div>
              </div>
              <div class="col-auto">
-                 <button type="submit" class="btn btn-primary mt-2">가입하기</button>
+                 <button type="submit" id="submit" class="btn btn-primary mt-2">가입하기</button>
              </div>
          </form>
      </main>
@@ -129,5 +136,108 @@
              All Rights Reserved
          </h6>
      </footer>
+     <script type="text/javascript">
+         $(document).ready(function(){
+            $("form").submit(function(){
+                var identy = $("input[name='identy']");
+                if(identy.val() == ""){
+                    alert("아이디를 입력하세요. 코드업 아이디와 일치시켜 주시기 바랍니다.");
+                    identy.focus();
+                    return false;
+                }
+
+                var name = $("input[name='name']");
+                if(name.val() == ""){
+                    alert("이름을 입력하세요.");
+                    name.focus();
+                    return false;
+                }
+
+                var pwd1 = $("input[name='pw']");
+                var pwd2 = $("input[name='pwch']");
+                if(pwd1.val() == ""){
+                    alert("비밀번호를 입력하세요!");
+                    pwd1.focus();
+                    return false;
+                }
+                if(pwd1.val().search(/\s/) != -1){
+                    alert("비밀번호는 공백 없이 입력해주세요.");
+                    pwd1.focus();
+                    return false;
+                }
+                if(pwd2.val == ""){
+                    alert("비밀번호를 한번 더 입력해주세요.");
+                    pwd2.focus();
+                    return false;
+                }
+                if(pwd1.val() !== pwd2.val()){
+                    alert("비밀번호가 일치하지 않습니다.");
+                    pwd2.focus();
+                    return false;
+                }
+
+                var num_1 = $("input[name='num_1']");
+                var num_2 = $("input[name='num_2']");
+                var num_3 = $("input[name='num_3']");
+                if(num_1.val() == "" || num_1.val().length > 3 || num_1.val().length <= 2){
+                    alert("전화번호를 확인해주세요.");
+                    num_1.focus();
+                    return false;
+                }
+                if(num_2.val() == "" || num_2.val().length > 4 || num_1.val().length <= 3){
+                    alert("전화번호를 확인해주세요.");
+                    num_2.focus();
+                    return false;
+                }
+                if(num_3.val() == "" || num_3.val().length > 4 || num_1.val().length <= 3){
+                    alert("전화번호를 확인해주세요.");
+                    num_3.focus();
+                    return false;
+                }
+
+                var email = $("input[name='email']");
+                if(email.val() == ''){
+                    alert('이메일을 입력하세요');
+                    email.focus();
+                    return false;
+                } else {
+                    var emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                    if (!emailRegex.test(email.val())) {
+                        alert('이메일 주소가 유효하지 않습니다. 다시 한번 확인해주세요.');
+                        email.focus();
+                        return false;
+                    }
+                }
+            });
+
+            $("#identy_check").click(function(e){
+                var identy = $("input[name='identy']");
+                if(identy.val() == ""){
+                    alert("아이디를 입력하세요. 코드업 아이디와 일치시켜 주시기 바랍니다.");
+                    identy.focus();
+                    return false;
+                }
+                $.ajax({
+                    url: 'identy_check.php',
+                    type: 'POST',
+                    data: {id:identy.val()},
+                    dataType: "json",
+                    success: function(msg){
+                        if(msg.result == 1){
+                            alert('사용 가능한 아이디입니다.');
+                            document.getElementById('identy').setAttribute('disabled', 'disabled');
+                        } else {
+                            alert('이미 가입된 아이디입니다. 다시 확인해 주세요.');
+                            identy.focus();
+                            return false;
+                        }
+                    },
+                    error: function(){
+                        alert("오류가 발생했습니다. 다시 시도해주시고, 이 현상이 지속되면 관리자에게 문의해주세요.");
+                    }
+                });
+            });
+         });
+     </script>
 </body>
 </html>

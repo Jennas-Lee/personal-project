@@ -81,19 +81,19 @@
          </nav>
      </header>
      <main role="main">
-         <div class="container mt-4 mb-4">
-             <h3 class="mt-4 mb-4 text-center">
-                 마음의 준비를 단단히 하시기 바랍니다.
-             </h3>
-         </div>
-         <form class="form-signin">
-              <label for="inputEmail" class="sr-only">아이디</label>
-              <input type="email" id="inputEmail" class="form-control" placeholder="아이디" required autofocus>
-              <label for="inputPassword" class="sr-only">패스워드</label>
-              <input type="password" id="inputPassword" class="form-control" placeholder="패스워드" required>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
-              <a href="#">비밀번호를 잃어버리셨습니까?</a>
-        </form>
+         <div class="container mt-5 mb-5">
+             <form class="form-signin">
+                 <h3 class="form-signin-heading text-center mt-5">
+                     마음의 준비를 <br>단단히 하시기 바랍니다.
+                 </h3>
+                  <label for="inputEmail" class="sr-only">아이디</label>
+                  <input type="email" id="inputEmail" class="form-control" placeholder="아이디" required autofocus>
+                  <label for="inputPassword" class="sr-only">패스워드</label>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="패스워드" required>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+                  <a href="#">비밀번호를 잃어버리셨습니까?</a>
+            </form>
+        </div>
      </main>
      <hr>
      <footer class="container">

@@ -1,3 +1,6 @@
+<?php
+    include "db.php";
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -61,7 +64,7 @@
          </div>
          <div class="container">
              <form action=""
-                 
+
              ></form>
              <table class="table">
                  <thead>
@@ -70,6 +73,7 @@
                          <th scope="col">아이디</th>
                          <th scope="col">이름</th>
                          <th scope="col">레이팅</th>
+                         <th scope="col">티어</th>
                      </tr>
                  </thead>
                  <tbody>
