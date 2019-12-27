@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
              <a href="index.php" class="navbar-brand">세명컴고 토코파</a>
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                  <span class="navbar-toggler-icon"></span>
@@ -38,15 +38,15 @@
                          </div>
                      </li>
                      <li class="nav-item">
-                         <a href="#" class="nav-link">오늘의 대회 결과</a>
+                         <a href="dailyresult.php" class="nav-link">오늘의 대회 결과</a>
                      </li>
                      <li class="nav-item">
                          <a href="#" class="nav-link">대회안내</a>
                      </li>
                  </ul>
                  <ul class="navbar-nav ml-auto">
-                     <li class="nav-item"><a href="#" class="nav-link">회원가입</a></li>
-                     <li class="nav-item"><a href="#" class="nav-link">로그인</a></li>
+                     <li class="nav-item"><a href="register.php" class="nav-link">회원가입</a></li>
+                     <li class="nav-item"><a href="login.php" class="nav-link">로그인</a></li>
                  </ul>
              </div>
          </nav>
@@ -59,26 +59,24 @@
              <div class="jumbotron">
                  <p class="lead">1시즌 1차 배치</p>
                  <p class="lead">2020-03-02 19:00:00</p>
-                 <h1 class="display-4">
-                     <span class="d-day">
-                         <script type="text/javascript">
-                             var day="2020-03-02";
-                             var now = new Date();
-                             var then = new Date(day);
-                             var gap = then.getTime() - now.getTime();
-                             gap = Math.floor(gap / (1000 * 60 * 60 * 24));
-                             if(gap<=-1) {
-                                 document.write("D-DAY");
-                             } else if(gap<=7) {
-                                 document.write("D-"+gap);
-                                 $(".d-day").css("color", "red");
-                                 $(".d-day").css("font-weight", "bold");
-                             } else {
-                                 document.write("D-"+gap);
-                             }
-                         </script>
-                     </span> <span>17:00:00</span>
-                 </h1>
+                 <h1 class="display-4" id="demo">&nbsp;</h1>
+                 <script type="text/javascript">
+                     var day= "Mar 3, 2020 19:00:00";
+                     var x = setInterval(function() {
+                         var now = new Date().getTime();
+                         var then = new Date(day).getTime();
+                         var gap = then - now;
+                         var days = Math.floor(gap / (1000 * 60 * 60 * 24));
+                         var hou = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                         var min = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+                         var sec = Math.floor((gap % (1000 * 60)) / 1000);
+                         hou = (hou < 10) ? "0" + hou : hou;
+                         min = (min < 10) ? "0" + min : min;
+                         sec = (sec < 10) ? "0" + sec : sec;
+                         var result = "D-" + days + " " + hou + ":" + min + ":" + sec;
+                         document.getElementById("demo").innerHTML = result;
+                     }, 1000);
+                 </script>
              </div>
          </div>
          <div class="container">
@@ -89,19 +87,46 @@
                  <div class="card">
                      <div class="card-body">
                          <h5 class="card-title text-center">Bronze</h5>
-                         <div class="card-text"></div>
+                         <div class="card-text">
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                         </div>
                      </div>
                  </div>
                  <div class="card">
                      <div class="card-body">
                          <h5 class="card-title text-center">Silver</h5>
-                         <div class="card-text"></div>
+                         <div class="card-text">
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                         </div>
                      </div>
                  </div>
                  <div class="card">
                      <div class="card-body">
                          <h5 class="card-title text-center">Gold</h5>
-                         <div class="card-text"></div>
+                         <div class="card-text">
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                         </div>
                      </div>
                  </div>
              </div>
@@ -114,19 +139,75 @@
                  <div class="card">
                      <div class="card-body">
                          <h5 class="card-title text-center">Bronze</h5>
-                         <div class="card-text"></div>
+                         <div class="row">
+                             <p class="ml-3">1기_이승준</p>
+                             <p class="ml-auto mr-3">2,650</p>
+                         </div>
+                         <div class="row">
+                             <p class="ml-3">1기_이승준</p>
+                             <p class="ml-auto mr-3">2,650</p>
+                         </div>
                      </div>
                  </div>
                  <div class="card">
                      <div class="card-body">
                          <h5 class="card-title text-center">Silver</h5>
-                         <div class="card-text"></div>
+                         <div class="card-text">
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                         </div>
                      </div>
                  </div>
                  <div class="card">
                      <div class="card-body">
                          <h5 class="card-title text-center">Gold</h5>
-                         <div class="card-text"></div>
+                         <div class="card-text">
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                             <div class="row">
+                                 <p class="ml-3">1기_이승준</p>
+                                 <p class="ml-auto mr-3">2,650</p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="container">
+             <div class="h3 text-center mt-4 mb-4">
+                 Ban List
+             </div>
+             <div class="card-group">
+                 <div class="card">
+                     <div class="card-body">
+                         <h5 class="card-title text-center">주최자</h5>
+                         <div class="card-text text-center">
+                             <p>1기_이승준</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="card">
+                     <div class="card-body">
+                         <h5 class="card-title text-center">기능반</h5>
+                         <div class="card-text text-center">
+                             <p>1기_이승준</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="card">
+                     <div class="card-body">
+                         <h5 class="card-title text-center">치팅</h5>
+                         <div class="card-text text-center">
+                             <p>1기_이승준</p>
+                         </div>
                      </div>
                  </div>
              </div>

@@ -15,6 +15,35 @@
         * {
             font-family: 'Noto Sans KR', sans-serif;
         }
+        .form-signin {
+          width: 100%;
+          max-width: 330px;
+          padding: 15px;
+          margin: auto;
+        }
+        .form-signin .checkbox {
+          font-weight: 400;
+        }
+        .form-signin .form-control {
+          position: relative;
+          box-sizing: border-box;
+          height: auto;
+          padding: 10px;
+          font-size: 16px;
+        }
+        .form-signin .form-control:focus {
+          z-index: 2;
+        }
+        .form-signin input[type="email"] {
+          margin-bottom: -1px;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+        .form-signin input[type="password"] {
+          margin-bottom: 10px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
     </style>
 </head>
 <body>
@@ -52,74 +81,19 @@
          </nav>
      </header>
      <main role="main">
-         <div class="container">
-             <h3 class="mt-4 mb-4">
-                 회원가입
+         <div class="container mt-4 mb-4">
+             <h3 class="mt-4 mb-4 text-center">
+                 마음의 준비를 단단히 하시기 바랍니다.
              </h3>
          </div>
-         <form action="" class="container">
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">아이디</label>
-                 <div class="col-sm-10">
-                     <input type="text" name="identy" class="form-control" placeholder="코드업 아이디와 일치시켜 주시기 바랍니다.">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">이름</label>
-                 <div class="col-sm-10">
-                     <input type="text" name="name" class="form-control">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">기수</label>
-                 <div class="col-sm-10">
-                     <select name="" id="" class="form-control">
-                         <option value="val1">1기</option>
-                         <option value="val2">2기</option>
-                     </select>
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">비밀번호</label>
-                 <div class="col-sm-10">
-                     <input type="password" name="pw" value="" class="form-control">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">비밀번호 확인</label>
-                 <div class="col-sm-10">
-                     <input type="password" name="pwch" value="" class="form-control">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">전화번호</label>
-                 <div class="form-row col-sm-10">
-                     <div class="col-2"><input type="text" name="num_1" class="form-control"></div>
-                     <span>-</span>
-                     <div class="col-2"><input type="text" name="num_2" class="form-control"></div>
-                     <span>-</span>
-                     <div class="col-2"><input type="text" name="num_3" class="form-control"></div>
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">이메일</label>
-                 <div class="col-sm-10">
-                     <input type="email" name="email" value="" class="form-control" placeholder="이메일은 비밀번호 찾기에 이용됩니다.">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">동의</label>
-                 <div class="col-sm-10">
-                     <div class="form-check mt-2">
-                         <input type="checkbox" class="form-check-input">
-                         <label for="">개인정보 제공에 동의합니다.</label>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-auto">
-                 <button type="submit" class="btn btn-primary mt-2">가입하기</button>
-             </div>
-         </form>
+         <form class="form-signin">
+              <label for="inputEmail" class="sr-only">아이디</label>
+              <input type="email" id="inputEmail" class="form-control" placeholder="아이디" required autofocus>
+              <label for="inputPassword" class="sr-only">패스워드</label>
+              <input type="password" id="inputPassword" class="form-control" placeholder="패스워드" required>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+              <a href="#">비밀번호를 잃어버리셨습니까?</a>
+        </form>
      </main>
      <hr>
      <footer class="container">

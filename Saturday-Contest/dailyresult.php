@@ -52,74 +52,48 @@
          </nav>
      </header>
      <main role="main">
-         <div class="container">
-             <h3 class="mt-4 mb-4">
-                 회원가입
-             </h3>
+         <div class="container text-center mt-4 mb-4">
+             <div class="jumbotron">
+                 <h1 class="display-4">1시즌 1차 배치 종료!</h1>
+                 <br>
+                 <p class="lead">자신의 결과를 확인하세요!</p>
+             </div>
          </div>
-         <form action="" class="container">
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">아이디</label>
-                 <div class="col-sm-10">
-                     <input type="text" name="identy" class="form-control" placeholder="코드업 아이디와 일치시켜 주시기 바랍니다.">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">이름</label>
-                 <div class="col-sm-10">
-                     <input type="text" name="name" class="form-control">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">기수</label>
-                 <div class="col-sm-10">
-                     <select name="" id="" class="form-control">
-                         <option value="val1">1기</option>
-                         <option value="val2">2기</option>
-                     </select>
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">비밀번호</label>
-                 <div class="col-sm-10">
-                     <input type="password" name="pw" value="" class="form-control">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">비밀번호 확인</label>
-                 <div class="col-sm-10">
-                     <input type="password" name="pwch" value="" class="form-control">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">전화번호</label>
-                 <div class="form-row col-sm-10">
-                     <div class="col-2"><input type="text" name="num_1" class="form-control"></div>
-                     <span>-</span>
-                     <div class="col-2"><input type="text" name="num_2" class="form-control"></div>
-                     <span>-</span>
-                     <div class="col-2"><input type="text" name="num_3" class="form-control"></div>
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">이메일</label>
-                 <div class="col-sm-10">
-                     <input type="email" name="email" value="" class="form-control" placeholder="이메일은 비밀번호 찾기에 이용됩니다.">
-                 </div>
-             </div>
-             <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">동의</label>
-                 <div class="col-sm-10">
-                     <div class="form-check mt-2">
-                         <input type="checkbox" class="form-check-input">
-                         <label for="">개인정보 제공에 동의합니다.</label>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-auto">
-                 <button type="submit" class="btn btn-primary mt-2">가입하기</button>
-             </div>
-         </form>
+         <div class="container">
+             <form action=""
+                 
+             ></form>
+             <table class="table">
+                 <thead>
+                     <tr>
+                         <th scope="col">순위</th>
+                         <th scope="col">아이디</th>
+                         <th scope="col">이름</th>
+                         <th scope="col">레이팅</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+
+                 </tbody>
+             </table>
+             <nav aria-label="Page navigation example">
+                 <ul class="pagination justify-content-center">
+                     <li class="page-item">
+                         <a href="#" class="page-link">
+                             <span aria-hidden="true">&laquo;</span>
+                         </a>
+                     </li>
+                     <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                     <li class="page-item"><a href="#" class="page-link">2</a></li>
+                     <li class="page-item"><a href="#" class="page-link">3</a></li>
+                     <li class="page-item">
+                         <a href="#" class="page-link">
+                             <span aria-hidden="true">&raquo;</span>
+                         </a>
+                     </li>
+                 </ul>
+             </nav>
+         </div>
      </main>
      <hr>
      <footer class="container">
