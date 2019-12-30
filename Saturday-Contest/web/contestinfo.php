@@ -1,6 +1,3 @@
-<?php
-    include "db.php";
-?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,7 +18,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header class="header clearfix">
          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
              <a href="index.php" class="navbar-brand">Saturday Night Coding</a>
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,49 +51,9 @@
              </div>
          </nav>
      </header>
-     <main role="main">
-         <div class="container text-center mt-4 mb-4">
-             <div class="jumbotron">
-                 <h1 class="display-4">1시즌 1차 배치 종료!</h1>
-                 <br>
-                 <p class="lead">자신의 결과를 확인하세요!</p>
-             </div>
-         </div>
-         <div class="container">
-             <form action=""
-
-             ></form>
-             <table class="table">
-                 <thead>
-                     <tr>
-                         <th scope="col">순위</th>
-                         <th scope="col">아이디</th>
-                         <th scope="col">이름</th>
-                         <th scope="col">레이팅</th>
-                         <th scope="col">티어</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-
-                 </tbody>
-             </table>
-             <nav aria-label="Page navigation example">
-                 <ul class="pagination justify-content-center">
-                     <li class="page-item">
-                         <a href="#" class="page-link">
-                             <span aria-hidden="true">&laquo;</span>
-                         </a>
-                     </li>
-                     <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                     <li class="page-item"><a href="#" class="page-link">2</a></li>
-                     <li class="page-item"><a href="#" class="page-link">3</a></li>
-                     <li class="page-item">
-                         <a href="#" class="page-link">
-                             <span aria-hidden="true">&raquo;</span>
-                         </a>
-                     </li>
-                 </ul>
-             </nav>
+     <main role="main" class="container mt-4">
+         <div class="container mt-4">
+             <div class="h1 text-center mt-4">대회안내</div>
          </div>
      </main>
      <hr>
