@@ -72,6 +72,9 @@
                      <li class="nav-item">
                          <a href="contestinfo.php" class="nav-link">대회안내</a>
                      </li>
+                     <li class="nav-item">
+                         <a href="contestinfo.php" class="nav-link">관리자가 추천하는 것들</a>
+                     </li>
                  </ul>
                  <ul class="navbar-nav ml-auto">
                      <li class="nav-item"><a href="register.php" class="nav-link">회원가입</a></li>

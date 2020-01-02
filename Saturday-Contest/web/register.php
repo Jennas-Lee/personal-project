@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:500&display=swap" rel="stylesheet">
     <title>SNC Contest</title>
     <style media="screen">
@@ -45,6 +46,9 @@
                      </li>
                      <li class="nav-item">
                          <a href="contestinfo.php" class="nav-link">대회안내</a>
+                     </li>
+                     <li class="nav-item">
+                         <a href="contestinfo.php" class="nav-link">관리자가 추천하는 것들</a>
                      </li>
                  </ul>
                  <ul class="navbar-nav ml-auto">
@@ -99,13 +103,10 @@
              </div>
              <hr>
              <div class="form-group row">
-                 <label for="" class="col-sm-2 col-form-label">전화번호</label>
-                 <div class="form-row col-sm-10">
-                     <div class="col-2"><input type="text" name="num_1" class="form-control"></div>
-                     <span>-</span>
-                     <div class="col-2"><input type="text" name="num_2" class="form-control"></div>
-                     <span>-</span>
-                     <div class="col-2"><input type="text" name="num_3" class="form-control"></div>
+                 <label for="" class="col-sm-2 col-form-label">카카오톡 연동하기</label>
+                 <div class="col-sm-10">
+                    <a id="kakao-login-btn" role="button">연동하기</a>
+                    <span id="kakao-login-result" class="text-danger">연동이 되지 않았습니다.</span>
                  </div>
              </div>
              <div class="form-group row">
@@ -238,6 +239,37 @@
                 });
             });
          });
+     </script>
+     <script type="text/javascript">
+         //<![CDATA[
+           // 사용할 앱의 JavaScript 키를 설정해 주세요.
+           Kakao.init('c9a1eb0907d5f60ccf194f71483645b8');
+           // 카카오 로그인 버튼을 생성합니다.
+           Kakao.Auth.createLoginButton({
+             container: '#kakao-login-btn',
+             success: function(authObj) {
+               // 로그인 성공시, API를 호출합니다.
+               Kakao.API.request({
+                 url: '/v2/user/me',
+                 success: function(res) {
+                   // alert(JSON.stringify(res));
+                     alert('연동이 완료되었습니다.');
+                     document.getElementById("kakao-login-btn").setAttribute('disabled', 'disabled');
+                     document.getElementById("kakao-login-result").setAttribute('class', 'text-primary');
+                     document.getElementById("kakao-login-result").innerHTML = "연동이 완료되었습니다.";
+                 },
+                 fail: function(error) {
+                   // alert(JSON.stringify(error));
+                       alert('연동에 실패했습니다. 이 현상이 지속되면 관리자에게 문의해주세요.');
+                 }
+               });
+             },
+             fail: function(err) {
+               // alert(JSON.stringify(err));
+                 alert('카카오톡 접속에 실패했습니다. 이 현상이 지속되면 관리자에게 문의해주세요.');
+             }
+           });
+         //]]>
      </script>
 </body>
 </html>
