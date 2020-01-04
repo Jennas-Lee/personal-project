@@ -16,34 +16,8 @@
         * {
             font-family: 'Noto Sans KR', sans-serif;
         }
-        .form-signin {
-          width: 100%;
-          max-width: 330px;
-          padding: 15px;
-          margin: auto;
-        }
-        .form-signin .checkbox {
-          font-weight: 400;
-        }
-        .form-signin .form-control {
-          position: relative;
-          box-sizing: border-box;
-          height: auto;
-          padding: 10px;
-          font-size: 16px;
-        }
-        .form-signin .form-control:focus {
-          z-index: 2;
-        }
-        .form-signin input[type="email"] {
-          margin-bottom: -1px;
-          border-bottom-right-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-        .form-signin input[type="password"] {
-          margin-bottom: 10px;
-          border-top-left-radius: 0;
-          border-top-right-radius: 0;
+        .introduce-link a:hover {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -96,19 +70,25 @@
          </nav>
      </header>
      <main role="main">
-         <div class="container mt-5 mb-5">
-             <form class="form-signin">
-                 <h3 class="form-signin-heading text-center mt-5">
-                     마음의 준비를 <br>단단히 하시기 바랍니다.
-                 </h3>
-                  <label for="inputEmail" class="sr-only">아이디</label>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="아이디" required autofocus>
-                  <label for="inputPassword" class="sr-only">패스워드</label>
-                  <input type="password" id="inputPassword" class="form-control" placeholder="패스워드" required>
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
-                  <a href="#">비밀번호를 잃어버리셨습니까?</a>
-            </form>
-        </div>
+         <div class="container">
+             <div class="h3 mt-4 mb-4">&nbsp;</div>
+             <div class="h3 text-center mt-4 mb-4">이의제기</div>
+         </div>
+         <div class="container">
+             <div class="alert alert-danger" role="alert">
+                 <div class="h4 alert-heading">이의제기 주의사항</div>
+                 <ol>
+                     <li>문제에 대한 이의제기는 할 수 없습니다. <br>관리자가 AS(All Solve)한 문제를 제시하였고, 선생님이 검토하시기 때문에 문제에는 아무 이상이 없습니다.</li>
+                     <li>이의제기에 대한 답변은 카카오톡으로 전송됩니다. 카카오톡을 확인해주세요. <br>카카오톡이 수신되지 않으면 관리자 이메일로 연락주시기 바랍니다.</li>
+                     <li>이의제기는 시험기간이 아니면 3일 이내에 확인 후 연락드리겠습니다.</li>
+                     <li>이의제기 남용은 곤란합니다. 반드시 다른 참가자들도 영향을 받을 수 있는 사항을 제기해주시기 바랍니다.</li>
+                 </ol>
+             </div>
+             <form action="">
+                 <textarea name="exception" rows="5" placeholder="이의제기하려는 내용을 자세히 적어주시기 바랍니다." style="width: 100%;"></textarea>
+                 <button type="submit" class="btn btn-primary">전송</button>
+             </form>
+         </div>
      </main>
      <hr>
      <footer class="container">

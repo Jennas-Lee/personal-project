@@ -16,34 +16,8 @@
         * {
             font-family: 'Noto Sans KR', sans-serif;
         }
-        .form-signin {
-          width: 100%;
-          max-width: 330px;
-          padding: 15px;
-          margin: auto;
-        }
-        .form-signin .checkbox {
-          font-weight: 400;
-        }
-        .form-signin .form-control {
-          position: relative;
-          box-sizing: border-box;
-          height: auto;
-          padding: 10px;
-          font-size: 16px;
-        }
-        .form-signin .form-control:focus {
-          z-index: 2;
-        }
-        .form-signin input[type="email"] {
-          margin-bottom: -1px;
-          border-bottom-right-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-        .form-signin input[type="password"] {
-          margin-bottom: 10px;
-          border-top-left-radius: 0;
-          border-top-right-radius: 0;
+        .introduce-link a:hover {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -96,19 +70,28 @@
          </nav>
      </header>
      <main role="main">
-         <div class="container mt-5 mb-5">
-             <form class="form-signin">
-                 <h3 class="form-signin-heading text-center mt-5">
-                     마음의 준비를 <br>단단히 하시기 바랍니다.
-                 </h3>
-                  <label for="inputEmail" class="sr-only">아이디</label>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="아이디" required autofocus>
-                  <label for="inputPassword" class="sr-only">패스워드</label>
-                  <input type="password" id="inputPassword" class="form-control" placeholder="패스워드" required>
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
-                  <a href="#">비밀번호를 잃어버리셨습니까?</a>
-            </form>
-        </div>
+         <div class="container">
+             <div class="h3 mt-4 mb-4">&nbsp;</div>
+             <div class="h3 text-center mt-4 mb-4">관리자 소개</div>
+         </div>
+         <div class="container">
+             <div class="row">
+                 <div class="col-md-12 col-lg-6">
+                     <div class="h4">1기_이승준(메인 관리자)</div>
+                     전공
+                     <br>
+                     데이터 과학, 머신러닝, 웹개발
+                 </div>
+                 <div class="col-md-12 col-lg-6">
+                     <ul class="list-unstyled introduce-link">
+                         <li class="mb-1"><a href="mailto:bi0416@naver.com" class="text-dark"><img src="img/naver.png" alt="NAVER Email" style="width: 16px; height: 16px;"> bi0416@naver.com</a></li>
+                         <li class="mb-1"><a href="mailto:leezeunjun@gmail.com" class="text-dark"><i class="fab fa-google"></i> leezeunjun@gmail.com</a></li>
+                         <li class="mb-1"><a href="https://github.com/iamseungjun" target="_blank" class="text-dark"><i class="fab fa-github"></i> iamseungjun</a></li>
+                         <li class="mb-1"><a href="https://www.instagram.com/__ss__jj__16" target="_blank" class="text-dark"><i class="fab fa-instagram"></i> __ss__jj__16</a></li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
      </main>
      <hr>
      <footer class="container">

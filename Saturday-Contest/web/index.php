@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7cc77c19eb.js" crossorigin="anonymous"></script>
     <title>SNC Contest</title>
     <style media="screen">
         * {
@@ -43,8 +44,19 @@
                      <li class="nav-item">
                          <a href="contestinfo.php" class="nav-link">대회안내</a>
                      </li>
+                     <li class="nav-item dropdown">
+                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             관리자가 추천하는 것들
+                         </a>
+                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                             <a href="introduce.php" class="dropdown-item">관리자 소개</a>
+                             <a href="book.php" class="dropdown-item">관리자가 추천하는 책</a>
+                             <a href="#" class="dropdown-item">관리자가 추천하는 코딩 공부법</a>
+                             <a href="application.php" class="dropdown-item">관리자 신청하기</a>
+                         </div>
+                     </li>
                      <li class="nav-item">
-                         <a href="contestinfo.php" class="nav-link">관리자가 추천하는 것들</a>
+                         <a href="exception.php" class="nav-link">이의제기</a>
                      </li>
                  </ul>
                  <ul class="navbar-nav ml-auto">
@@ -56,9 +68,8 @@
      </header>
      <main role="main">
          <div class="container text-center">
-             <div class="h3 mt-4 mb-4">
-                 다음 대회
-             </div>
+             <div class="h3 mt-4 mb-4">&nbsp;</div>
+             <div class="h3 mt-4 mb-4">다음 대회</div>
              <div class="jumbotron">
                  <p class="lead">1시즌 1차 배치</p>
                  <p class="lead">2020-03-02 19:00:00</p>
@@ -184,7 +195,7 @@
                  </div>
              </div>
          </div>
-         <div class="container">
+         <div class="container mb-4">
              <div class="h3 text-center mt-4 mb-4">
                  Ban List
              </div>
@@ -216,7 +227,7 @@
              </div>
          </div>
      </main>
-     <hr>
+     <hr class="mt-4 mb-4">
      <footer class="container">
          <h6 class="text-center mt-2">
              COPYRIGHT &copy; 2019-SeungJun Lee
