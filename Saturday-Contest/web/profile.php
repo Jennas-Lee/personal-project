@@ -1,6 +1,3 @@
-<?php
-    include "db.php";
-?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,10 +11,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7cc77c19eb.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <title>SNC Contest</title>
     <style media="screen">
         * {
             font-family: 'Noto Sans KR', sans-serif;
+        }
+        .introduce-link a:hover {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -70,46 +71,85 @@
          </nav>
      </header>
      <main role="main">
-         <div class="h3 text-center mt-4 mb-4">오늘의 대회 결과</div>
-         <div class="container text-center mt-4 mb-4">
-             <div class="jumbotron">
-                 <h1 class="display-4">1시즌 1차 배치 종료!</h1>
-                 <br>
-                 <p class="lead">자신의 결과를 확인하세요!</p>
-             </div>
+         <div class="container mt-4 mb-4">
+             &nbsp;d
          </div>
          <div class="container">
-             <table class="table">
-                 <thead>
-                     <tr>
-                         <th scope="col">순위</th>
-                         <th scope="col">아이디</th>
-                         <th scope="col">이름</th>
-                         <th scope="col">레이팅</th>
-                         <th scope="col">티어</th>
-                     </tr>
-                 </thead>
-                 <tbody>
+             <div class="container">
+                 <?php
+                    $id = $_GET['id'];
 
-                 </tbody>
-             </table>
-             <nav aria-label="Page navigation example">
-                 <ul class="pagination justify-content-center">
-                     <li class="page-item">
-                         <a href="#" class="page-link">
-                             <span aria-hidden="true">&laquo;</span>
-                         </a>
-                     </li>
-                     <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                     <li class="page-item"><a href="#" class="page-link">2</a></li>
-                     <li class="page-item"><a href="#" class="page-link">3</a></li>
-                     <li class="page-item">
-                         <a href="#" class="page-link">
-                             <span aria-hidden="true">&raquo;</span>
-                         </a>
-                     </li>
-                 </ul>
-             </nav>
+                    $conn = mysqli_connect(
+                        'localhost',
+                        'root',
+                        'root1234',
+                        'contest'
+                    );
+                    $sql = "SELECT * FROM member";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_array($result);
+                    $year = $row['year'];
+                    $name = $row['name'];
+                    $tier = $row['tier'];
+
+                    if($tier == 'Admin') {
+                        $color = "#FF0000";
+                    } else if($tier == 'Gold') {
+                        $color = "#FFD700";
+                    } else if($tier == 'Silver') {
+                        $color = "#C0C0C0";
+                    } else if($tier == 'Bronze') {
+                        $color = "#CD7F32";
+                    } else {
+                        $color = "#808080";
+                    }
+
+                    // echo $id;
+                    echo "<h2 style=\"color:$color\">$year-$name</h2>";
+                    echo "<a href=\"https://codeup.kr/userinfo.php?user=$id\" class=\"text-secondary\">-$id</a>"
+                 ?>
+             </div>
+             <div id="chart" class="container" style="height: 500px; width: 100%;"></div>
+             <script>
+                 google.charts.load('current', {'packages' : ['corechart']});
+                 google.charts.setOnLoadCallback(drawChart);
+
+                 function drawChart(){
+                     var data = google.visualization.arrayToDataTable([
+                         ['날짜', '레이팅'],
+                         ['19-03-02', 0],
+                         ['19-03-03', 50],
+                         ['19-03-04', 100],
+                         ['19-03-05', 200],
+                         ['19-03-06', 250],
+                         ['19-03-07', 230],
+                         ['19-03-08', 350],
+                         ['19-03-09', 450],
+                         ['19-03-10', 500],
+                         ['19-03-11', 600]
+                     ]);
+
+                     var options = {
+                        title :  '레이팅 현황',
+                        legend : {position: 'top', alignment: 'center'},
+                        animation : {
+                            startup : true,
+                            duration : 4000,
+                            easing : 'inAndOut'
+                        },
+                        chartArea : {
+                            width : '90%',
+                            height : '50%'
+                        },
+                        pointsVisible : 'True',
+                        colors : ['green']
+                     };
+
+                    var chart = new google.visualization.LineChart(document.getElementById('chart'));
+
+                    chart.draw(data, options);
+                 }
+             </script>
          </div>
      </main>
      <hr>

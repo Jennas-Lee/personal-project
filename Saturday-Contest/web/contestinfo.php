@@ -78,6 +78,9 @@
              <div class="h5"><strong class="h4">Q.</strong> 대회가 언제 시작되는지 어떻게 아나요?</div>
              <div><strong class="h5">A.&nbsp;&nbsp;</strong>여러분이 가입하신 이 사이트에 등록하신 카카오톡으로 메세지가 전송됩니다. 단, 카카오톡 연동을 하실 때 '메세지 수신'항목을 반드시 체크해주시기 바랍니다.</div>
              <hr>
+             <div class="h5"><strong class="h4">Q.</strong> 대회를 참여하지 않으면 어떤 페널티가 있나요?</div>
+             <div><strong class="h5">A.&nbsp;&nbsp;</strong>대회를 참여하지 않으면 레이팅 15점이 감점되고, 불이익이 있을 수 있습니다.</div>
+             <hr>
              <div class="h5"><strong class="h4">Q.</strong> 분명 카카오톡 연동을 했는데, 대회날마다 메세지가 오지 않아요.</div>
              <div><strong class="h5">A.&nbsp;&nbsp;</strong>메세지 수신에 동의하지 않으면 메세지가 전송되지 않습니다. 관리자에게 문의해주시면 해결방법을 알려드리겠습니다.</div>
              <hr>
