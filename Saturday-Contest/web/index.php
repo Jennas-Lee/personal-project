@@ -72,10 +72,10 @@
              <div class="h3 mt-4 mb-4">다음 대회</div>
              <div class="jumbotron">
                  <p class="lead">1시즌 1차 배치</p>
-                 <p class="lead">2020-03-02 19:00:00</p>
+                 <p class="lead">2020-05-09 19:00:00</p>
                  <h1 class="display-4" id="demo">&nbsp;</h1>
                  <script type="text/javascript">
-                     var day= "Mar 3, 2020 19:00:00";
+                     var day= "May 9, 2020 19:00:00";
                      var x = setInterval(function() {
                          var now = new Date().getTime();
                          var then = new Date(day).getTime();
