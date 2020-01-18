@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -87,7 +87,7 @@
                          <li class="mb-1"><a href="mailto:bi0416@naver.com" class="text-dark"><img src="img/naver.png" alt="NAVER Email" style="width: 16px; height: 16px;"> bi0416@naver.com</a></li>
                          <li class="mb-1"><a href="mailto:leezeunjun@gmail.com" class="text-dark"><i class="fab fa-google"></i> leezeunjun@gmail.com</a></li>
                          <li class="mb-1"><a href="https://github.com/iamseungjun" target="_blank" class="text-dark"><i class="fab fa-github"></i> iamseungjun</a></li>
-                         <li class="mb-1"><a href="https://www.instagram.com/__ss__jj__16" target="_blank" class="text-dark"><i class="fab fa-instagram"></i> __ss__jj__16</a></li>
+                         <li class="mb-1"><a href="https://www.instagram.com/specialist_sj" target="_blank" class="text-dark"><i class="fab fa-instagram"></i> specialist_sj</a></li>
                      </ul>
                  </div>
              </div>

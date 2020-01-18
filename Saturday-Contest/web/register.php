@@ -7,10 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:500&display=swap" rel="stylesheet">
@@ -72,16 +74,42 @@
      </header>
      <main role="main">
          <div class="container">
+             <div class="h3 mt-4 mb-4">&nbsp;</div>
              <h3 class="mt-4 mb-4">
                  회원가입
              </h3>
          </div>
-         <form method="post" id="registerform" class="container">
+         <script type="text/javascript">
+             $(document).ready(function(e){
+                  $("#identy").on("keyup", function(){
+                      var self = $(this);
+                      var identy;
+
+                      if(self.attr("id") === "identy"){
+                          identy = self.val();
+                      }
+
+                      $.post(
+                          "id_check.php",
+                          { identy : identy },
+                          function(data){
+                              if(data){
+                                  self.parent().parent().find("#id-check").html(data);
+                              }
+                          }
+                      );
+                  });
+             });
+
+
+         </script>
+         <form method="post" action="register_ok.php" name="registerform" id="registerform" class="container">
              <div class="form-group row">
                  <label for="" class="col-sm-2 col-form-label">아이디</label>
                  <div class="col-sm-10">
                      <input type="text" id="identy" name="identy" class="form-control" placeholder="코드업 아이디와 일치시켜 주시기 바랍니다.">
-                     <button type="button" name="identy_check" id="identy_check" class="btn btn-info mt-2">중복확인</button>
+                     <span id="id-check"><span class="text-danger">아이디를 입력하세요.</span</span>
+                     <!-- <a href="#">중복확인</a> -->
                  </div>
              </div>
              <div class="form-group row">
@@ -93,11 +121,18 @@
              <div class="form-group row">
                  <label for="" class="col-sm-2 col-form-label">기수</label>
                  <div class="col-sm-10">
-                     <select name="year" id="year" class="form-control">
-                         <option value="" selected disabled hidden>선택</option>
-                         <option value="1기">1기</option>
-                         <option value="2기">2기</option>
-                     </select>
+                     <div class="form-check form-check-inline">
+                         <input type="radio" name="year" id="year1" value="1기" class="form-check-input">
+                         <label for="year1" class="form-check-label">1기</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                         <input type="radio" name="year" id="year2" value="2기" class="form-check-input">
+                         <label for="year2" class="form-check-label">2기</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                         <input type="radio" name="year" id="yearstaff" value="STAFF" class="form-check-input" disabled>
+                         <label for="yearstaff" class="form-check-label">STAFF</label>
+                     </div>
                  </div>
              </div>
              <hr>
@@ -118,7 +153,8 @@
                  <label for="" class="col-sm-2 col-form-label">카카오톡 연동하기</label>
                  <div class="col-sm-10">
                     <a id="kakao-login-btn" role="button">연동하기</a>
-                    <span id="kakao-login-result" class="text-danger">연동이 되지 않았습니다.</span>
+                    <br>
+                    <span id="kakao-login-result" class="text-danger" name="nope">연동이 되지 않았습니다.</span>
                  </div>
              </div>
              <div class="form-group row">
@@ -131,7 +167,7 @@
                  <label for="" class="col-sm-2 col-form-label">동의</label>
                  <div class="col-sm-10">
                      <div class="form-check mt-2">
-                         <input type="checkbox" class="form-check-input">
+                         <input type="checkbox" class="form-check-input" name="agree" id="agree">
                          <label for="">개인정보 제공에 동의합니다.</label>
                      </div>
                  </div>
@@ -166,6 +202,18 @@
                     return false;
                 }
 
+                var year = document.getElementsByName('year');
+                var sel_type = null;
+                for(var i=0; i<year.length; i++){
+                    if(year[i].checked == true){
+                        sel_type = year[i].value;
+                    }
+                }
+                if(sel_type == null){
+                    alert("기수를 선택해주세요.");
+                    return false;
+                }
+
                 var pwd1 = $("input[name='pw']");
                 var pwd2 = $("input[name='pwch']");
                 if(pwd1.val() == ""){
@@ -188,25 +236,18 @@
                     pwd2.focus();
                     return false;
                 }
+                if(pwd1.val().length < 8 || pwd1.val().length > 20) {
+                    alert("비밀번호는 8~20자 이내로 입력해주세요.");
+                    pwd1.focus();
+                    return false;
+                }
 
-                var num_1 = $("input[name='num_1']");
-                var num_2 = $("input[name='num_2']");
-                var num_3 = $("input[name='num_3']");
-                if(num_1.val() == "" || num_1.val().length > 3 || num_1.val().length <= 2){
-                    alert("전화번호를 확인해주세요.");
-                    num_1.focus();
+                var kakaoVal = $("span[id='kakao-login-result']").attr('name');
+                if(kakaoVal == "nope"){
+                    alert("카카오톡에 연동해주세요.");
                     return false;
                 }
-                if(num_2.val() == "" || num_2.val().length > 4 || num_1.val().length <= 3){
-                    alert("전화번호를 확인해주세요.");
-                    num_2.focus();
-                    return false;
-                }
-                if(num_3.val() == "" || num_3.val().length > 4 || num_1.val().length <= 3){
-                    alert("전화번호를 확인해주세요.");
-                    num_3.focus();
-                    return false;
-                }
+
 
                 var email = $("input[name='email']");
                 if(email.val() == ''){
@@ -221,34 +262,13 @@
                         return false;
                     }
                 }
-            });
 
-            $("#identy_check").click(function(e){
-                var identy = $("input[name='identy']");
-                if(identy.val() == ""){
-                    alert("아이디를 입력하세요. 코드업 아이디와 일치시켜 주시기 바랍니다.");
-                    identy.focus();
+                if($("input:checkbox[name='agree']").is(":checked") == false) {
+                    alert('개인정보 제공에 동의해주세요.');
+                    $("input[name='agree']").focus();
                     return false;
                 }
-                $.ajax({
-                    url: 'identy_check.php',
-                    type: 'POST',
-                    data: {id:identy.val()},
-                    dataType: "json",
-                    success: function(msg){
-                        if(msg.result == 1){
-                            alert('사용 가능한 아이디입니다.');
-                            document.getElementById('identy').setAttribute('disabled', 'disabled');
-                        } else {
-                            alert('이미 가입된 아이디입니다. 다시 확인해 주세요.');
-                            identy.focus();
-                            return false;
-                        }
-                    },
-                    error: function(){
-                        alert("오류가 발생했습니다. 다시 시도해주시고, 이 현상이 지속되면 관리자에게 문의해주세요.");
-                    }
-                });
+
             });
          });
      </script>
@@ -268,6 +288,7 @@
                      alert('연동이 완료되었습니다.');
                      document.getElementById("kakao-login-btn").setAttribute('disabled', 'disabled');
                      document.getElementById("kakao-login-result").setAttribute('class', 'text-primary');
+                     document.getElementById("kakao-login-result").setAttribute('name', 'yeah');
                      document.getElementById("kakao-login-result").innerHTML = "연동이 완료되었습니다.";
                  },
                  fail: function(error) {

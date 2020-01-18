@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -97,14 +97,14 @@
      </header>
      <main role="main">
          <div class="container mt-5 mb-5">
-             <form class="form-signin">
+             <form class="form-signin" method="post" action="login_ok.php">
                  <h3 class="form-signin-heading text-center mt-5">
                      마음의 준비를 <br>단단히 하시기 바랍니다.
                  </h3>
-                  <label for="inputEmail" class="sr-only">아이디</label>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="아이디" required autofocus>
-                  <label for="inputPassword" class="sr-only">패스워드</label>
-                  <input type="password" id="inputPassword" class="form-control" placeholder="패스워드" required>
+                  <label for="id" class="sr-only">아이디</label>
+                  <input type="text" name="id" id="id" class="form-control" placeholder="아이디" required autofocus>
+                  <label for="pw" class="sr-only">패스워드</label>
+                  <input type="password" name="pw" id="pw" class="form-control" placeholder="패스워드" required>
                   <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
                   <a href="#">비밀번호를 잃어버리셨습니까?</a>
             </form>
