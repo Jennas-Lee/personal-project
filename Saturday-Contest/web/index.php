@@ -1,5 +1,5 @@
 <?php
-    // session_start();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -64,7 +64,6 @@
                  <ul class="navbar-nav ml-auto">
                      <?php
                         if(isset($_SESSION['id'])){
-                            // echo "<li class=\"nav-item\"><a href=\"register.php\" class=\"nav-link\">".$id."</a></li>";
                             echo "<li class=\"nav-item\"><a href=\"profile.php?id=\" class=\"nav-link\">프로필</a></li>";
                             echo "<li class=\"nav-item\"><a href=\"logout.php\" class=\"nav-link\">로그아웃</a></li>";
                         } else {
@@ -240,7 +239,7 @@
      <hr class="mt-4 mb-4">
      <footer class="container">
          <h6 class="text-center mt-2">
-             COPYRIGHT &copy; 2019-SeungJun Lee
+             COPYRIGHT &copy; 2020~ SeungJun Lee
              <br>
              All Rights Reserved
          </h6>

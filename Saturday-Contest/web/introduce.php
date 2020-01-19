@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -63,8 +66,15 @@
                      </li>
                  </ul>
                  <ul class="navbar-nav ml-auto">
-                     <li class="nav-item"><a href="register.php" class="nav-link">회원가입</a></li>
-                     <li class="nav-item"><a href="login.php" class="nav-link">로그인</a></li>
+                     <?php
+                        if(isset($_SESSION['id'])){
+                            echo "<li class=\"nav-item\"><a href=\"profile.php?id=\" class=\"nav-link\">프로필</a></li>";
+                            echo "<li class=\"nav-item\"><a href=\"logout.php\" class=\"nav-link\">로그아웃</a></li>";
+                        } else {
+                            echo "<li class=\"nav-item\"><a href=\"register.php\" class=\"nav-link\">회원가입</a></li>";
+                            echo "<li class=\"nav-item\"><a href=\"login.php\" class=\"nav-link\">로그인</a></li>";
+                        }
+                     ?>
                  </ul>
              </div>
          </nav>
@@ -96,7 +106,7 @@
      <hr>
      <footer class="container">
          <h6 class="text-center mt-2">
-             COPYRIGHT &copy; 2019-SeungJun Lee
+             COPYRIGHT &copy; 2020~ SeungJun Lee
              <br>
              All Rights Reserved
          </h6>

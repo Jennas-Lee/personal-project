@@ -1,5 +1,5 @@
 <?php
-    include "db.php";
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -180,7 +180,7 @@
      <hr>
      <footer class="container">
          <h6 class="text-center mt-2">
-             COPYRIGHT &copy; 2019-SeungJun Lee
+             COPYRIGHT &copy; 2020~ SeungJun Lee
              <br>
              All Rights Reserved
          </h6>
