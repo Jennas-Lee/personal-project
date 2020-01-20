@@ -81,10 +81,14 @@
      </header>
      <main role="main">
          <div class="container">
-             <div class="h3 mt-4 mb-4">&nbsp;</div>
              <div class="h3 text-center mt-4 mb-4">이의제기</div>
          </div>
          <div class="container">
+             <?php
+                 if(!isset($_SESSION['id'])){
+                     echo "로그인하십시오!";
+                 } else {
+             ?>
              <div class="alert alert-danger" role="alert">
                  <div class="h4 alert-heading">이의제기 주의사항</div>
                  <ol>
@@ -94,11 +98,37 @@
                      <li>이의제기 남용은 곤란합니다. 반드시 다른 참가자들도 영향을 받을 수 있는 사항을 제기해주시기 바랍니다.</li>
                  </ol>
              </div>
-             <form action="">
+             <form action="exception_ok.php" method="post">
                  <textarea name="exception" rows="5" placeholder="이의제기하려는 내용을 자세히 적어주시기 바랍니다." style="width: 100%;"></textarea>
+                 <div class="col-sm-10">
+                     <div class="form-check mt-2">
+                         <input type="checkbox" class="form-check-input" name="agree" id="agree">
+                         <label for="">신중하게 이의제기를 하십시오. 반드시 한번 더 확인하세요.</label>
+                     </div>
+                 </div>
                  <button type="submit" class="btn btn-primary">전송</button>
              </form>
+         <?php } ?>
          </div>
+         <script type="text/javascript">
+             $(document).ready(function(){
+                $("form").submit(function(){
+                    var textarea = $("textarea[name='exception']");
+                    if(textarea.val() == ""){
+                        alert("이의제기하려는 내용을 적어주세요.");
+                        identy.focus();
+                        return false;
+                    }
+
+                    if($("input:checkbox[name='agree']").is(":checked") == false) {
+                        alert('반드시 한번 더 확인하고 체크하세요.');
+                        $("input[name='agree']").focus();
+                        return false;
+                    }
+
+                });
+             });
+         </script>
      </main>
      <hr>
      <footer class="container">

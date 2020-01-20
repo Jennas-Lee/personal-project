@@ -1,5 +1,11 @@
 <?php
     session_start();
+    $conn = mysqli_connect(
+        'localhost',
+        'root',
+        'root1234',
+        'contest'
+    );
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -64,12 +70,17 @@
                  <ul class="navbar-nav ml-auto">
                      <?php
                         if(isset($_SESSION['id'])){
-                            echo "<li class=\"nav-item\"><a href=\"profile.php?id=\" class=\"nav-link\">프로필</a></li>";
+                            echo "<li class=\"nav-item\"><a href=\"profile.php?id={$_SESSION['id']}\" class=\"nav-link\">프로필</a></li>";
                             echo "<li class=\"nav-item\"><a href=\"logout.php\" class=\"nav-link\">로그아웃</a></li>";
                         } else {
                             echo "<li class=\"nav-item\"><a href=\"register.php\" class=\"nav-link\">회원가입</a></li>";
                             echo "<li class=\"nav-item\"><a href=\"login.php\" class=\"nav-link\">로그인</a></li>";
                         }
+                        $to = "bi0416@naver.com";
+                        $subject = "PHP를 통한 메일 발송";
+                        $contents = "PHP main() 테스트";
+                        $headers = "From: leezeunjun@gmail.com\r\n";
+                        // mail($to, $subject, $contents, $headers);
                      ?>
                  </ul>
              </div>
@@ -77,7 +88,6 @@
      </header>
      <main role="main">
          <div class="container text-center">
-             <div class="h3 mt-4 mb-4">&nbsp;</div>
              <div class="h3 mt-4 mb-4">다음 대회</div>
              <div class="jumbotron">
                  <p class="lead">1시즌 1차 배치</p>
@@ -213,7 +223,13 @@
                      <div class="card-body">
                          <h5 class="card-title text-center">주최자</h5>
                          <div class="card-text text-center">
-                             <p>1기_이승준</p>
+                             <?php
+                                 $sql = "SELECT * FROM member WHERE tier='Admin'";
+                                 $result = mysqli_query($conn, $sql);
+                                 while($row = mysqli_fetch_array($result)){
+                                     echo "<p>".$row['year']."_".$row['name']."</p>";
+                                 }
+                             ?>
                          </div>
                      </div>
                  </div>
@@ -221,7 +237,13 @@
                      <div class="card-body">
                          <h5 class="card-title text-center">기능반</h5>
                          <div class="card-text text-center">
-                             <p>1기_이승준</p>
+                             <?php
+                                 $sql = "SELECT * FROM member WHERE tier='Skill'";
+                                 $result = mysqli_query($conn, $sql);
+                                 while($row = mysqli_fetch_array($result)){
+                                     echo "<p>".$row['year']."_".$row['name']."</p>";
+                                 }
+                             ?>
                          </div>
                      </div>
                  </div>
@@ -229,7 +251,13 @@
                      <div class="card-body">
                          <h5 class="card-title text-center">치팅</h5>
                          <div class="card-text text-center">
-                             <p>1기_이승준</p>
+                             <?php
+                                 $sql = "SELECT * FROM member WHERE tier='Cheat'";
+                                 $result = mysqli_query($conn, $sql);
+                                 while($row = mysqli_fetch_array($result)){
+                                     echo "<p>".$row['year']."_".$row['name']."</p>";
+                                 }
+                             ?>
                          </div>
                      </div>
                  </div>

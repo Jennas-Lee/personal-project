@@ -10,7 +10,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7cc77c19eb.js" crossorigin="anonymous"></script>
@@ -81,10 +80,14 @@
      </header>
      <main role="main">
          <div class="container">
-             <div class="h3 mt-4 mb-4">&nbsp;</div>
              <div class="h3 text-center mt-4 mb-4">관리자 신청하기</div>
          </div>
          <div class="container">
+             <?php
+                 if(!isset($_SESSION['id'])){
+                     echo "로그인하십시오!";
+                 } else {
+             ?>
              <div class="alert alert-info" role="alert">
                  <div class="h4 alert-heading">2기 관리자 모집중!</div>
                  <ul class="list-unstyled">
@@ -124,7 +127,7 @@
                  <span aria-hidden="true">&times;</span>
                  </button>
              </div>
-             <form action="">
+             <form action="application_ok.php" method="post">
                  <textarea name="content1" rows="3" maxlength="99" placeholder="관리자가 되고 싶은 이유는?" style="width: 100%;" id="content1"></textarea>
                  <div class="container mb-1 text-right">
                      <span id="counter1">0/100</span>
@@ -155,6 +158,7 @@
                  </div>
                  <button type="submit" class="btn btn-primary">전송</button>
              </form>
+             <?php } ?>
          </div>
          <script>
              $(function(){
